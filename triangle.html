@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Triangle</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="400" style="border: 1px solid black;"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Begin drawing
+        ctx.beginPath();
+        ctx.moveTo(100, 300); // Left vertex
+        ctx.lineTo(300, 300); // Right vertex
+        ctx.lineTo(200, 100); // Top vertex
+        ctx.closePath(); // Close the triangle
+
+        // Fill and outline
+        ctx.fillStyle = 'blue'; // Fill color
+        ctx.fill();
+        ctx.strokeStyle = 'red'; // Outline color
+        ctx.stroke();
+    </script>
+</body>
+</html>

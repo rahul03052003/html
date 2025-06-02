@@ -1,0 +1,42 @@
+button:hover{
+    background-color: blueviolet;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+#i{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.n{
+    font-size: larger;
+}
+
+p.w3s{
+    background-color: blueviolet;
+}
+
+a{
+    text-decoration: none;
+}
+*{
+    padding: 10px;
+    margin: 10px;
+}
+
+::selection{
+    background-color: white;
+    color:darkblue;
+
+}
+
+p:first-child{
+    background-color: blue;
+}
+
+a:focus{
+    color: chocolate;
+}
+
+ul li{
+    font-style: italic;
+}

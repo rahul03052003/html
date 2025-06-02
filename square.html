@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Circle</title>
+</head>
+<body onload="drawCircle()">
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+    <script>
+        function drawCircle(){
+            const ctx = document.getElementById('myCanvas').getContext('2d'); 
+            ctx.beginPath();
+            ctx.arc(200, 200, 100, 0, Math.PI * 2); 
+            ctx.fillStyle = 'green'; 
+            ctx.fill();
+        }
+    </script>
+</body>
+</html>

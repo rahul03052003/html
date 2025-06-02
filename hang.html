@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman SVG</title>
+</head>
+<body>
+    <h3>Hangman Drawing</h3>
+    <svg width="300" height="300">
+        <!-- Gallows -->
+        <line x1="50" y1="250" x2="150" y2="250" stroke="black" stroke-width="4"/> <!-- Base -->
+        <line x1="100" y1="250" x2="100" y2="50" stroke="black" stroke-width="4"/> <!-- Pole -->
+        <line x1="100" y1="50" x2="200" y2="50" stroke="black" stroke-width="4"/> <!-- Top Beam -->
+        <line x1="200" y1="50" x2="200" y2="80" stroke="black" stroke-width="4"/> <!-- Noose Line -->
+
+        <!-- Hangman Figure -->
+        <circle cx="200" cy="100" r="20" stroke="black" stroke-width="3" fill="none"/> <!-- Head -->
+        <line x1="200" y1="120" x2="200" y2="180" stroke="black" stroke-width="3"/> <!-- Body -->
+        <line x1="200" y1="140" x2="180" y2="160" stroke=
+        "black" stroke-width="3"/> <!-- Left Arm -->
+        <line x1="200" y1="140" x2="220" y2="160" stroke="black" stroke-width="3"/> <!-- Right Arm -->
+        <line x1="200" y1="180" x2="180" y2="220" stroke="black" stroke-width="3"/> <!-- Left Leg -->
+        <line x1="200" y1="180" x2="220" y2="220" stroke="black" stroke-width="3"/> <!-- Right Leg -->
+    </svg>
+</body>
+</html>
