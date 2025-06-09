@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var n1=parseFloat(prompt("Enter the 1st no:"));
+        var op=prompt("Enter the operator(+,-,*,/)");
+        var n2=parseFloat(prompt("Enter the 2nd no:"));
+        var r;
+
+        document.writeln("First number: "+n1);
+        document.writeln("<br>Operator: "+op);
+        document.writeln("<br>Second number: "+n2+"<br>");
+
+        if(op==='+'){
+            r=n1+n2;
+        }else if(op==='-'){
+            r=n1-n2;
+        }else if(op==='*'){
+            r=n1*n2;
+        }else if(op==='/'){
+            r=n2!=0?n1/n2:"(Enter division is zero)";
+        }else{
+            r="Invalid operator";
+        }
+        document.writeln("<strong>Result "+r+"</strong>");
+</script>
+</body>
+</html>
