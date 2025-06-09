@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Card Payment Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f9f9f9; color: #333; }
+        .form-container { width: 300px; margin: 0 auto; padding: 20px; border-radius: 10px; background: #ffffff; box-shadow: 0px 4px 8px rgba(0,0,0,0.1); }
+        input, button { width: 90%; padding: 10px; margin: 5px 0; border: 1px solid #ddd; border-radius: 5px; }
+        button { background: #53c710; cursor: pointer; }
+        button:hover { background: #e0e0e0; }
+        .error { color: rgb(238, 119, 21); font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Card Payment</h2>
+        <form id="cardForm">
+            <input type="text" id="cardName" placeholder="Cardholder Name">
+            <div class="error" id="cardNameError"></div>
+
+            <input type="text" id="cardNumber" placeholder="Card Number">
+            <div class="error" id="cardNumberError"></div>
+
+            <input type="text" id="expiryDate" placeholder="MM/YY">
+            <div class="error" id="expiryDateError"></div>
+
+            <input type="password" id="cvv" placeholder="CVV">
+            <div class="error" id="cvvError"></div>
+
+            <button type="submit">Submit</button>
+            <button type="button" id="clearBtn">Clear</button>
+        </form>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        document.getElementById("cardForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const cardName = document.getElementById("cardName").value.trim();
+            const cardNumber = document.getElementById("cardNumber").value.trim();
+            const expiryDate = document.getElementById("expiryDate").value.trim();
+            const cvv = document.getElementById("cvv").value.trim();
+
+            const cardNameError = document.getElementById("cardNameError");
+            const cardNumberError = document.getElementById("cardNumberError");
+            const expiryDateError = document.getElementById("expiryDateError");
+            const cvvError = document.getElementById("cvvError");
+
+            cardNameError.textContent = "";
+            cardNumberError.textContent = "";
+            expiryDateError.textContent = "";
+            cvvError.textContent = "";
+
+            let valid = true;
+
+            if (cardName.length < 3) {
+                cardNameError.textContent = "Cardholder name must be at least 3 characters.";
+                valid = false;
+            }
+
+            const cardNumberRegex = /^\d{16}$/;
+            if (!cardNumber.match(cardNumberRegex)) {
+                cardNumberError.textContent = "Card number must be 16 digits.";
+                valid = false;
+            }
+
+            const expiryDateRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            if (!expiryDate.match(expiryDateRegex)) {
+                expiryDateError.textContent = "Enter a valid expiry date (MM/YY).";
+                valid = false;
+            }
+
+            const cvvRegex = /^\d{3}$/;
+            if (!cvv.match(cvvRegex)) {
+                cvvError.textContent = "CVV must be 3 digits.";
+                valid = false;
+            }
+
+            if (valid) {
+                alert("Card details submitted successfully!");
+                const outputDiv = document.getElementById("output");
+                outputDiv.innerHTML = `
+                    <h3>Card Details</h3>
+                    <p><strong>Cardholder Name:</strong> ${cardName}</p>
+                    <p><strong>Card Number:</strong> **** **** **** ${cardNumber.slice(-4)}</p>
+                    <p><strong>Expiry Date:</strong> ${expiryDate}</p>
+                    <p><strong>CVV:</strong> ***</p>
+                `;
+            }
+        });
+
+        document.getElementById("clearBtn").addEventListener("click", function () {
+            document.getElementById("cardForm").reset();
+            document.getElementById("cardNameError").textContent = "";
+            document.getElementById("cardNumberError").textContent = "";
+            document.getElementById("expiryDateError").textContent = "";
+            document.getElementById("cvvError").textContent = "";
+            document.getElementById("output").innerHTML = "";
+        });
+    </script>
+</body>
+</html>
