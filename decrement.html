@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="countBtn">Click me</button>
+    <button id="decreBtn">Decrement</button>
+    <button id="resetBtn">Reset</button>
+    <p id="counter">Clicked 0 times</p>
+
+    <script>
+        let c=0;
+        function updateD(){
+            document.getElementById("counter").innerHTML = "Clicked " + c + " times";
+        }
+        document.getElementById("countBtn").addEventListener("mouseover", function(){
+            c++;
+            updateD();
+        });
+        document.getElementById("decreBtn").addEventListener("click",function(){
+            if(c>0) c--;
+            updateD();
+        });
+        document.getElementById("resetBtn").addEventListener("click",function(){
+            c=0;
+            updateD();
+        });
+    </script>
+</body>
+</html>
