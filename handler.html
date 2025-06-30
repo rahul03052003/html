@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color:lightcoral;
+            text-align: center;
+            line-height: 100px;
+            margin-bottom: 20px;
+             transition: all 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"
+    onclick="handleClick()"
+    onmouseover="handleMouseOver()"
+    onmouseout="handleMouseOut()"
+    onmousedown="handleMouseDown()"
+    onmouseup="handleMouseUp()">
+    Hover/Click
+    </div>
+    <select onchange="handleChange(this)">
+        <option value="">Choose</option>
+        <option value="Apple">Apple</option>
+        <option value="Banana">Banana</option>
+        </select><br><br>
+        <input type="text" placeholder="Input something..."
+        onfocus="handleFocus(this)"
+        onblur="handleBlur(this)"
+        oninput="handleInput(this)"
+        onkeydown="handleKeyDown()"
+        onkeyup="handleKeyUp()">
+        <p>Live Output:<span id="liveOutput"></span></p>
+        <p id="keyStatus"></p>
+        <br>
+        <form onsubmit="handleSubmit(event)">
+            <input type="text" placeholder="Enter name">
+            <button type="submit">Submit</button>
+        </form>
+    <script>
+    window.onload=function(){
+        alert("Page is fully loaded!");
+    }
+function handleClick(){
+    alert("Box clicked!");
+}
+function handleMouseOver() {
+    console.log("Mouse is over the box.");
+    document.getElementById("box").style.backgroundColor = "orange";
+}
+function handleMouseOut() {
+    console.log("Mouse is out of the box.");
+    document.getElementById("box").style.backgroundColor="blue";
+}
+function handleMouseDown(){
+    console.log("Mouse is down on the box.");
+    document.getElementById("box").style.backgroundColor="green";
+}
+function handleMouseUp(){
+    console.log("Mouse is up on the box.");
+    document.getElementById("box").style.backgroundColor="yellow";
+}
+
+function handleChange(e){
+    alert("Selected: "+e.value);
+}
+function handleFocus(e){
+    e.style.border="2px solid green";
+}
+function handleBlur(e){
+    e.style.border="";
+}
+function handleInput(e){
+    document.getElementById("liveOutput").innerText=e.value;
+}
+function handleKeyDown(e){
+    document.getElementById("keyStatus").innerText="Key is being pressed.";
+}
+function handleKeyUp(e){
+    document.getElementById("keyStatus").innerText="Key is released.";
+}
+function handleSubmit(e){
+    e.preventDefault();
+    alert("Form submitted!");
+}
+</script>
+
+</body>
+</html>
+
