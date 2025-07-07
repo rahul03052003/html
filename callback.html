@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>CallBack Example with delay</h2>
+    <button onclick="startP(showmsg)">Click me</button>
+
+    <script>
+        function startP(CallBack){
+            console.log("Starting process...");
+            setTimeout(()=>{
+                console.log("Staring process... done");
+                CallBack();
+            },3000);
+            }
+        
+        function showmsg(){
+            console.log("Message shown");
+            alert("Callback executed successfully");
+        }
+    </script>
+</body>
+</html>
