@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        button{
+            padding: 10px; 
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="old">Hi old</div>
+    <button onclick="replacediv()">Replace</button>
+
+    <script>
+        
+        function replacediv() {
+                  let newd=document.createElement("div");
+                  newd.textContent="YO";
+                  let o=document.getElementById("old");
+                  o.parentNode.replaceChild(newd,o);
+        }
+    </script>
+</body>
+</html>
