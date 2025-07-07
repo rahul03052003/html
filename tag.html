@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        button{
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <p>Hello!</p>
+    <p>Hi</p>
+    <p>Welcome</p>
+
+    <button onclick="changeT()">Click me</button>
+    <script>
+        function changeT() {
+            let text = document.querySelectorAll('p');
+            for(let i=0;i<text.length;i++){
+                text[i].style.color="violet";
+            }
+        }
+    </script>
+</body>
+</html>
