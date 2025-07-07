@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Promises wait demo</h2>
+    <button onclick="startwait()">Click to start</button>
+    <p id="o"></p>
+    <script>
+        function wait(ms){
+            return new Promise((resolve,reject)=>{
+                if(ms>5000){
+                    reject("Error: too long wait");
+                }else{
+                    setTimeout(()=>{
+                        resolve("Done waiting "+ms+" ms");
+                    },3000);
+                }
+            });
+        }
+
+        function startwait(){
+            const ouput=document.getElementById('o');
+            wait(5000)
+            .then((msg)=>{
+                ouput.textContent=msg;
+            })
+            .catch((err)=>{
+                ouput.textContent=err;
+            })
+            .finally(()=>{
+                console.log("Promise completed.")
+            });
+        }
+    </script>
+</body>
+</html>
