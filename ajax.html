@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch User Data</title>
+</head>
+<body>
+    <h2>Get User Data</h2>
+    <button onclick="userdata()">Fetch User</button>
+    <p id="r"></p>
+
+    <script>
+        function userdata() {
+            var req = new XMLHttpRequest();
+            req.open('GET', 'https://jsonplaceholder.typicode.com/users/10', true);
+            req.onload = function () {
+                if (req.status === 200) {
+                    var user = JSON.parse(req.responseText);
+                    document.getElementById("r").textContent = `Name: ${user.name}, Email: ${user.email}, phone: ${user.phone}`;
+                } else {
+                    document.getElementById("r").textContent = "Failed to fetch user data.";
+                }
+            };
+
+        
+            req.send();
+        }
+    </script>
+</body>
+</html>
