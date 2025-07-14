@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Callback Example</title>
+</head>
+<body>
+    <h2>Pizza Preparation with Callback</h2>
+    <button onclick="preparePizza(pizzaReady)">Order Pizza</button>
+
+    <script>
+        function preparePizza(callback) {
+            console.log("Order received. Preparing your pizza...");
+            setTimeout(() => {
+                console.log("Pizza is baked and ready!");
+                callback();
+            }, 3000); 
+        }
+
+        function pizzaReady() {
+            console.log("Pizza is being delivered.");
+            alert("Your delicious pizza is ready! Enjoy!");
+        }
+    </script>
+</body>
+</html>
